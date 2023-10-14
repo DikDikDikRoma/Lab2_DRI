@@ -7,8 +7,8 @@ namespace TestProject1
         {
         }
 
-        [TestCase("", "", "")]
-        public void Login_long_null(string a, string b, string c)
+        [TestCase("", "Rr@35RFf", "Rr@35RFf")]
+        public void Login_lang_empty(string a, string b, string c)
         {
             // Подготовка Arrange
             var expect = ("False", "Пустая строка в качестве логина");
@@ -21,8 +21,8 @@ namespace TestProject1
             Assert.That(actual, Is.EqualTo(expect));
         }
 
-        [TestCase("1234", "", "")]
-        [TestCase("12345", "", "")] //тест проходить не должен
+        [TestCase("1234", "Rr@35RFf", "Rr@35RFf")]
+        [TestCase("12345", "Rr@35RFf", "Rr@35RFf")] //тест проходить не должен
         public void Login_long_chislo(string a, string b, string c)
         {
             // Подготовка Arrange
@@ -36,9 +36,9 @@ namespace TestProject1
             Assert.That(actual, Is.EqualTo(expect));
         }
 
-        [TestCase("user11", "", "")]
-        [TestCase("user22", "", "")]
-        [TestCase("user33", "", "")]
+        [TestCase("user11", "Rr@35RFf", "Rr@35RFf")]
+        [TestCase("user22", "Rr@35RFf", "Rr@35RFf")]
+        [TestCase("user33", "Rr@35RFf", "Rr@35RFf")]
         public void CheckExistUser(string a, string b, string c)
         {
             // Подготовка Arrange
@@ -52,9 +52,9 @@ namespace TestProject1
             Assert.That(actual, Is.EqualTo(expect));
         }
 
-        [TestCase("+x-xxx-xxx-xxxx", "", "")]
-        [TestCase("+11111111111", "", "")]
-        [TestCase("+0 000 000 0000", "", "")]
+        [TestCase("+x-xxx-xxx-xxxx", "Rr@35RFf", "Rr@35RFf")]
+        [TestCase("+11111111111", "Rr@35RFf ", "")]
+        [TestCase("+0 000 000 0000", "Rr@35RFf", "Rr@35RFf")]
         public void CheckLoginContent_Phone(string a, string b, string c)
         {
             // Подготовка Arrange
@@ -68,9 +68,9 @@ namespace TestProject1
             Assert.That(actual, Is.EqualTo(expect));
         }
 
-        [TestCase("@may.com", "", "")]
-        [TestCase("@@@@@@@", "", "")]
-        [TestCase("123@123", "", "")]//должен быть верным
+        [TestCase("@may.com", "Rr@35RFf", "Rr@35RFf")]
+        [TestCase("@@@@@@@", "Rr@35RFf", "Rr@35RFf")]
+        [TestCase("123@123", "Rr@35RFf", "Rr@35RFf")]//должен быть верным
         public void CheckLoginContent_Email(string a, string b, string c)
         {
             // Подготовка Arrange
@@ -84,8 +84,8 @@ namespace TestProject1
             Assert.That(actual, Is.EqualTo(expect));
         }
 
-        [TestCase("ya-www-rom2013@ya.ru", "", "")]
-        public void Password_long_null(string a, string b, string c)
+        [TestCase("ya-www-rom2013@ya.ru", "", "Rr@35RFf")]
+        public void Password_lang_empty(string a, string b, string c)
         {
             // Подготовка Arrange
             var expect = ("False", "Пустая строка в качестве пароля");
